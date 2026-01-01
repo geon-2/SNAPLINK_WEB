@@ -1,13 +1,11 @@
 import styled from "styled-components";
-import Header from "@components/Header.tsx";
-import Footer from "@components/Footer.tsx";
+import {SubPageContainer} from "@components/common/Container.tsx";
 
 export default function Notice() {
     return (
         <>
-            <Header />
-            <Container>
-                <Title>공지사항</Title>
+
+            <SubPageContainer title="공지사항">
                 <NoticeItem>
                     <NoticeItemTitle>개인정보 처리 방침 약관 안내</NoticeItemTitle>
                     <NoticeItemDate>2025. 12. 26</NoticeItemDate>
@@ -16,27 +14,10 @@ export default function Notice() {
                     <NoticeItemTitle>서비스 이용 약관 안내</NoticeItemTitle>
                     <NoticeItemDate>2025. 12. 26</NoticeItemDate>
                 </NoticeItem>
-            </Container>
-            <Footer />
+            </SubPageContainer>
         </>
     )
 }
-
-const Container = styled.div`
-    padding: 112px 125px;
-    box-sizing: border-box;
-    
-    @media (max-width: 720px) {
-        padding: 112px 50px;
-    }
-`
-
-const Title = styled.h1`
-    margin-bottom: 101px;
-    font-size: 38px;
-    font-weight: bold;
-    color: #00A980;
-`
 
 const NoticeItem = styled.a`
     display: block;

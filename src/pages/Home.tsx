@@ -1,10 +1,9 @@
-// src/pages/Home.tsx
-import Header from "@components/Header";
 import styled from "styled-components";
+import Header from "@components/common/Header";
+import Footer from "@components/common/Footer";
 import GooglePlayIcon from "@assets/icons/download-google-play.svg";
 import AppStoreIcon from "@assets/icons/download-app-store.svg";
 import InquiryForm from "@components/Home/InquiryForm.tsx";
-import Footer from "@components/Footer.tsx";
 
 export default function Home() {
     return (

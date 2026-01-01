@@ -22,7 +22,8 @@ export default function Header() {
                 {/* Desktop Nav */}
                 <Nav>
                     <NavLink href="/notice">공지사항</NavLink>
-                    <NavLink href="/">자주 묻는 질문</NavLink>
+                    <NavLink href="/faq">자주 묻는 질문</NavLink>
+                    <NavLink href="/">행사 촬영 문의</NavLink>
                     <NavLink href="/">고객센터</NavLink>
                 </Nav>
 
@@ -41,11 +42,14 @@ export default function Header() {
             {/* Slide Menu */}
             <SideMenu $open={open}>
                 <SideNav>
-                    <SideNavLink href="/" onClick={() => setOpen(false)}>
+                    <SideNavLink href="/notice" onClick={() => setOpen(false)}>
                         공지사항
                     </SideNavLink>
-                    <SideNavLink href="/" onClick={() => setOpen(false)}>
+                    <SideNavLink href="/faq" onClick={() => setOpen(false)}>
                         자주 묻는 질문
+                    </SideNavLink>
+                    <SideNavLink href="/" onClick={() => setOpen(false)}>
+                        행사 촬영 문의
                     </SideNavLink>
                     <SideNavLink href="/" onClick={() => setOpen(false)}>
                         고객센터

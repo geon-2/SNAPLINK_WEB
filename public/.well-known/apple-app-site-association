@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "74QVVB74K5.com.revede.snaplink",
+        "paths": [
+          "/portfolio/*",
+          "/post/*",
+          "/photographer/*"
+        ]
+      }
+    ]
+  }
+}

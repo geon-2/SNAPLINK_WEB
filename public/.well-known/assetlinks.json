@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.revede.snaplink",
+      "sha256_cert_fingerprints": [
+        "DA:35:50:FF:D4:14:E0:B9:B7:12:FB:EC:0F:F5:FD:77:BB:47:72:00:B9:AC:A1:43:BC:63:97:03:22:59:BA:50"
+      ]
+    }
+  }
+]

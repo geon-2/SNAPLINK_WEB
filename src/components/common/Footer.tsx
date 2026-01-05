@@ -31,7 +31,7 @@ export default function Footer() {
                 <SiteMapWrapper>
                     <SiteMapTitle>고객센터</SiteMapTitle>
                     <SiteMapLink href="/">이메일</SiteMapLink>
-                    <SiteMapLink href="/">채팅</SiteMapLink>
+                    <SiteMapLink href="http://pf.kakao.com/_KasSn">채팅</SiteMapLink>
                     <SiteMapLink href="/">문의</SiteMapLink>
                 </SiteMapWrapper>
             </SiteMapContainer>

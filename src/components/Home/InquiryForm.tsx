@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import CheckIcon from "@assets/icons/check.svg";
 
+
 export default function InquiryForm() {
     const [name, setName] = useState<string>("");
     const [time, setTime] = useState<0 | 1 | null>(null);
@@ -9,11 +10,48 @@ export default function InquiryForm() {
     const [contact, setContact] = useState<string>("");
     const [message, setMessage] = useState<string>("");
     const [isAgreed, setIsAgreed] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(false);
 
     const valid = name !== "" && time !== null && email !== "" && contact !== "" && message !== "" && isAgreed;
 
-    const handleSubmit = () => {
-        alert("전송되었습니다.");
+    const handleSubmit = async () => {
+        if (!valid || loading) return;
+
+        try {
+            setLoading(true);
+
+            const res = await fetch("/api/send-inquiry", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name,
+                    time: time === 0 ? "오전" : "오후",
+                    email,
+                    contact,
+                    message,
+                }),
+            });
+
+            if (!res.ok) {
+                throw new Error("Failed to send inquiry");
+            }
+
+            alert("문의가 성공적으로 전송되었습니다.");
+
+            setName("");
+            setTime(null);
+            setEmail("");
+            setContact("");
+            setMessage("");
+            setIsAgreed(false);
+        } catch (error) {
+            console.error(error);
+            alert("전송에 실패했습니다. 잠시 후 다시 시도해주세요.");
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -107,7 +145,7 @@ export default function InquiryForm() {
                     <InquiryFormCheckboxWrapper>
                         <InquiryFormCheckbox
                             type="button"
-                            isChecked={isAgreed}
+                            $isChecked={isAgreed}
                             onClick={(e) => {
                                 e.preventDefault();
                                 setIsAgreed(!isAgreed);
@@ -123,15 +161,15 @@ export default function InquiryForm() {
 
             <InquiryFormSubmitButtonWrapper>
                 <InquiryFormSubmitButton
-                    $disabled={!valid}
-                    disabled={!valid}
+                    $disabled={!valid || loading}
+                    disabled={!valid || loading}
                     type="button"
                     onClick={(e) => {
                         e.preventDefault();
                         handleSubmit();
                     }}
                 >
-                    제출하기
+                    {loading ? "전송 중..." : "제출하기"}
                 </InquiryFormSubmitButton>
             </InquiryFormSubmitButtonWrapper>
         </InquiryFormContainer>
@@ -288,7 +326,7 @@ const InquiryFormCheckboxWrapper = styled.div`
     align-items: center;
 `;
 
-const InquiryFormCheckbox = styled.button<{ isChecked: boolean }>`
+const InquiryFormCheckbox = styled.button<{ $isChecked: boolean }>`
     background: none;
     width: 25px;
     height: 25px;
@@ -297,7 +335,7 @@ const InquiryFormCheckbox = styled.button<{ isChecked: boolean }>`
     margin-right: 10px;
     cursor: pointer;
 
-    ${({ isChecked }) => (isChecked ? `background-color: #00A980;` : `border: 1px solid #E9E9E9 !important;`)}
+    ${({ $isChecked }) => ($isChecked ? `background-color: #00A980;` : `border: 1px solid #E9E9E9 !important;`)}
 `;
 
 const InquiryFormCheckboxIcon = styled.img`

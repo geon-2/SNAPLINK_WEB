@@ -3,6 +3,11 @@ import Header from "@components/common/Header";
 import Footer from "@components/common/Footer";
 import GooglePlayIcon from "@assets/icons/download-google-play.svg";
 import AppStoreIcon from "@assets/icons/download-app-store.svg";
+import BannerImage from "@assets/imgs/banner.png";
+import Screenshot1Image from "@assets/imgs/screenshot1.png";
+import Screenshot2Image from "@assets/imgs/screenshot2.png";
+import Screenshot3Image from "@assets/imgs/screenshot3.png";
+import Screenshot4Image from "@assets/imgs/screenshot4.png";
 import InquiryForm from "@components/Home/InquiryForm.tsx";
 
 export default function Home() {
@@ -10,7 +15,7 @@ export default function Home() {
         <>
             <Header />
 
-            <Banner>
+            <Banner url={BannerImage}>
                 <BannerText>
                     스냅사진을{"\n"}손 안에서 쉽고 간편하게
                 </BannerText>
@@ -41,7 +46,7 @@ export default function Home() {
                                 예약하고 간편한 스냅사진 촬영을 경험해보세요.
                             </AppDescriptionText>
                         </AppDescriptionTextWrapper>
-                        <AppDescriptionImageWrapper />
+                        <AppDescriptionImageWrapper src={Screenshot1Image} />
                     </AppDescriptionWrapper>
 
                     {/* 2 (reverse) */}
@@ -56,7 +61,7 @@ export default function Home() {
                                 걱정없이 원하는 스타일과 콘셉트에 맞는 작가님을 한 눈에 보여드립니다.
                             </AppDescriptionText>
                         </AppDescriptionTextWrapper>
-                        <AppDescriptionImageWrapper />
+                        <AppDescriptionImageWrapper src={Screenshot2Image} />
                     </AppDescriptionWrapper>
 
                     {/* 3 */}
@@ -71,7 +76,7 @@ export default function Home() {
                                 공유하고 고민을 해결해보세요.
                             </AppDescriptionText>
                         </AppDescriptionTextWrapper>
-                        <AppDescriptionImageWrapper />
+                        <AppDescriptionImageWrapper src={Screenshot3Image} />
                     </AppDescriptionWrapper>
                 </AppDescriptionInner>
             </AppDescriptionContainer>
@@ -81,11 +86,7 @@ export default function Home() {
                     지금, 스냅링크와 함께{"\n"}
                     사진작가 커리어를 시작해 보세요.
                 </WelcomeTitle>
-                <WelcomeImage />
-                <WelcomeText>
-                    스냅촬영 예약부터 관리까지{"\n"}
-                    스냅링크 함께 하세요.
-                </WelcomeText>
+                <WelcomeImage src={Screenshot4Image} />
             </WelcomeContainer>
 
             <InquiryForm />
@@ -94,10 +95,9 @@ export default function Home() {
     );
 }
 
-const Banner = styled.div`
+const Banner = styled.div<{ url?: string }>`
     width: 100%;
     height: 620px;
-    background-color: #d9d9d9;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -105,6 +105,8 @@ const Banner = styled.div`
 
     padding: 0 clamp(16px, 4vw, 80px);
     box-sizing: border-box;
+    
+    background: ${({ url }) => (url ? `url(${url}) no-repeat center / cover` : "#aaa")};
 
     @media (max-width: 600px) {
         height: 520px;
@@ -224,12 +226,11 @@ const AppDescriptionTextWrapper = styled.div`
     max-width: 520px;
 `;
 
-const AppDescriptionImageWrapper = styled.div<{ url?: string }>`
+const AppDescriptionImageWrapper = styled.img`
     grid-area: image;
     width: min(444px, 100%);
     aspect-ratio: 444 / 272;
     border-radius: 10px;
-    background: ${({ url }) => (url ? `url(${url}) no-repeat center / cover` : "#aaa")};
 `;
 
 const AppDescriptionTitle = styled.h2`
@@ -257,7 +258,6 @@ const WelcomeContainer = styled.section`
     flex-direction: column;
     align-items: center;
     padding-top: clamp(72px, 10vw, 168px);
-    padding-bottom: clamp(72px, 8vw, 111px);
     text-align: center;
 
     padding-left: clamp(16px, 4vw, 40px);
@@ -273,18 +273,8 @@ const WelcomeTitle = styled.h2`
     line-height: 1.2;
 `;
 
-const WelcomeImage = styled.div`
+const WelcomeImage = styled.img`
     width: min(400px, 100%);
-    height: 100px;
-    margin: 40px 0;
-    background: rgba(255, 255, 255, 0.15);
+    margin-top: 40px;
     border-radius: 12px;
-`;
-
-const WelcomeText = styled.p`
-    font-size: clamp(18px, 2.4vw, 32px);
-    font-weight: 600;
-    color: #fff;
-    white-space: pre-line;
-    line-height: 1.25;
 `;

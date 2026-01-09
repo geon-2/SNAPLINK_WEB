@@ -5,9 +5,9 @@
       {
         "appID": "74QVVB74K5.com.revede.snaplink",
         "paths": [
-          "/portfolio/*",
-          "/post/*",
-          "/photographer/*"
+          "/tab/home/portfolio/*",
+          "/tab/community/post/*",
+          "/tab/home/photographer/*"
         ]
       }
     ]

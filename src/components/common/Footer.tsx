@@ -9,7 +9,7 @@ export default function Footer() {
                 <ContactInfoWrapper>
                     <ContactInfoText>Revede</ContactInfoText>
                     <ContactInfoText>대표자 : 이관우</ContactInfoText>
-                    <ContactInfoText>고객센터 문의 : </ContactInfoText>
+                    <ContactInfoText>고객센터 문의 : 카카오톡 채널 '스냅링크'</ContactInfoText>
                     <ContactInfoText>메일 문의: snapbridge05@gmail.com</ContactInfoText>
                 </ContactInfoWrapper>
 
@@ -30,15 +30,8 @@ export default function Footer() {
             <SiteMapContainer>
                 <SiteMapWrapper>
                     <SiteMapTitle>서비스</SiteMapTitle>
-                    <SiteMapLink href="/">공지사항</SiteMapLink>
-                    <SiteMapLink href="/">자주 묻는 질문</SiteMapLink>
-                    <SiteMapLink href="/">고객센터</SiteMapLink>
-                </SiteMapWrapper>
-
-                <SiteMapWrapper>
-                    <SiteMapTitle>고객센터</SiteMapTitle>
-                    <SiteMapLink href="/">이메일</SiteMapLink>
-                    <SiteMapLink href="http://pf.kakao.com/_KasSn">채팅</SiteMapLink>
+                    <SiteMapLink href="/notice">공지사항</SiteMapLink>
+                    <SiteMapLink href="/faq">자주 묻는 질문</SiteMapLink>
                 </SiteMapWrapper>
             </SiteMapContainer>
         </Container>

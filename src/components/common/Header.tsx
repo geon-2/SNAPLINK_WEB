@@ -24,7 +24,7 @@ export default function Header() {
                     <NavLink href="/notice">공지사항</NavLink>
                     <NavLink href="/faq">자주 묻는 질문</NavLink>
                     <NavLink href="/">행사 촬영 문의</NavLink>
-                    <NavLink href="/">고객센터</NavLink>
+                    <NavLink href="http://pf.kakao.com/_KasSn">고객센터</NavLink>
                 </Nav>
 
                 {/* Mobile Hamburger */}
@@ -51,7 +51,7 @@ export default function Header() {
                     <SideNavLink href="/" onClick={() => setOpen(false)}>
                         행사 촬영 문의
                     </SideNavLink>
-                    <SideNavLink href="/" onClick={() => setOpen(false)}>
+                    <SideNavLink href="http://pf.kakao.com/_KasSn" onClick={() => setOpen(false)}>
                         고객센터
                     </SideNavLink>
                 </SideNav>

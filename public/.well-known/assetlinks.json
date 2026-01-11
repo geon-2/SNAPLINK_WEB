@@ -1,11 +1,15 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.revede.snaplink",
       "sha256_cert_fingerprints": [
-        "DA:35:50:FF:D4:14:E0:B9:B7:12:FB:EC:0F:F5:FD:77:BB:47:72:00:B9:AC:A1:43:BC:63:97:03:22:59:BA:50"
+        "DA:35:50:FF:D4:14:E0:B9:B7:12:FB:EC:0F:F5:FD:77:BB:47:72:00:B9:AC:A1:43:BC:63:97:03:22:59:BA:50",
+        "9B:94:BC:0C:35:79:26:B8:97:99:47:31:B8:80:EA:D5:F8:1D:25:C8:7D:68:09:AD:EC:EF:FE:18:E9:35:10:67"
       ]
     }
   }

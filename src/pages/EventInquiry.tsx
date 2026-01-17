@@ -303,6 +303,20 @@ const InquiryFormMultilineRow = styled.div`
 
 const InquiryFormInputWrapper = styled.div`
     width: 100%;
+    .react-datepicker-wrapper {
+        width: 100%;
+    }
+    
+    .react-datepicker__input-container {
+        width: 100%;
+    }
+
+    /* 반응형을 위해 데스크탑에서 최대 너비를 제한하고 싶다면 아래 추가 */
+    @media (min-width: 820px) {
+        .react-datepicker-wrapper {
+            max-width: 385px;
+        }
+    }
 `;
 
 const InquiryFormCaption = styled.p`
@@ -325,6 +339,10 @@ const InquiryFormInput = styled.input`
     box-sizing: border-box;
     font-size: 16px;
     color: #000;
+
+    @media (min-width: 820px) {
+        max-width: 385px;
+    }
 
     ::placeholder {
         color: #2d2d2d;
@@ -435,7 +453,6 @@ const InquiryFormSubmitButton = styled.button<{ $disabled: boolean }>`
 `;
 
 const StyledDatePicker = styled(DatePicker)`
-    width: 100%;
     height: 54px;
     border-radius: 10px;
     border: 1px solid #d0d0d0;
@@ -443,6 +460,11 @@ const StyledDatePicker = styled(DatePicker)`
     box-sizing: border-box;
     font-size: 16px;
     color: #000;
+    width: 100%;
+
+    @media (min-width: 820px) {
+        width: 385px;
+    }
 
     ::placeholder {
         color: #2d2d2d;

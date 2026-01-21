@@ -5,7 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import type { Address } from "react-daum-postcode";
 import { useDaumPostcodePopup } from "react-daum-postcode";
-import SuccessModal from "@components/Common/SuccessModal";
+import SuccessModal from "@components/common/SuccessModal";
 
 
 export default function EventInquiry() {
